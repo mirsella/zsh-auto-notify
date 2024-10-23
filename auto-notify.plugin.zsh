@@ -69,7 +69,7 @@ function _auto_notify_message() {
             arguments+=("--icon=$icon")
 	fi
         notify-send ${arguments[@]}
-        notif ${arguments[@]}
+        (notif ${arguments[@]} > /dev/null 2>&1 &)
 
     elif [[ "$platform" == "Darwin" ]]; then
         osascript \
